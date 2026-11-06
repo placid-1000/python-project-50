@@ -1,0 +1,32 @@
+from pathlib import Path
+
+from gendiff import generate_diff
+
+TEST_DATA_DIR = Path(__file__).parent / 'test_data'
+
+
+def test_generate_diff_flat_json():
+    path1 = TEST_DATA_DIR / 'file1.json'
+    path2 = TEST_DATA_DIR / 'file2.json'
+    expected = (TEST_DATA_DIR / 'expected_flat_diff.txt').read_text()
+    assert generate_diff(str(path1), str(path2)) == expected.rstrip('\n')
+
+
+def test_generate_diff_same_files():
+    path = TEST_DATA_DIR / 'file1.json'
+    actual = generate_diff(str(path), str(path))
+    assert '- ' not in actual
+    assert '+ ' not in actual
+
+def test_main(capsys, monkeypatch):
+    path1 = TEST_DATA_DIR / 'file1.json'
+    path2 = TEST_DATA_DIR / 'file2.json'
+    expected = (TEST_DATA_DIR / 'expected_flat_diff.txt').read_text()
+
+    monkeypatch.setattr('sys.argv', ['gendiff', str(path1), str(path2)])
+    from gendiff.scripts.gendiff import main
+    main()
+
+    captured = capsys.readouterr()
+    assert captured.out.strip() == expected.strip()
+
