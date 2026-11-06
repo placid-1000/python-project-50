@@ -1,6 +1,6 @@
 # Вычислитель отличий (Python)
 
-[![hexlet-check](https://github.com/placid-1000/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/placid-1000/python-project-50/actions)
+[![hexlet-check](https://github.com/placid-1000/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/placid-1000/python-project-50/actions/workflows/hexlet-check.yml)
 
 [![CI](https://github.com/placid-1000/python-project-50/actions/workflows/check.yml/badge.svg)](https://github.com/placid-1000/python-project-50/actions/workflows/check.yml)
 
@@ -23,7 +23,6 @@ git clone https://github.com/placid-1000/python-project-50.git
 cd python-project-50
 make install
 ```
-
 
 ## Использование
 
@@ -69,6 +68,32 @@ gendiff filepath1.json filepath2.json
 Демонстрация работы с вложенными структурами:
 
 [![asciinema](https://asciinema.org/a/8zsBEsEzatRm5SOq.svg)](https://asciinema.org/a/8zsBEsEzatRm5SOq)
+
+Сравнение файлов в формате plain:
+
+```bash
+gendiff --format plain filepath1.json filepath2.json
+```
+
+Пример вывода:
+
+```text
+Property 'common.follow' was added with value: false
+Property 'common.setting2' was removed
+Property 'common.setting3' was updated. From true to null
+Property 'common.setting4' was added with value: 'blah blah'
+Property 'common.setting5' was added with value: [complex value]
+Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
+Property 'common.setting6.ops' was added with value: 'vops'
+Property 'group1.baz' was updated. From 'bas' to 'bars'
+Property 'group1.nest' was updated. From [complex value] to 'str'
+Property 'group2' was removed
+Property 'group3' was added with value: [complex value]
+```
+
+Демонстрация работы в формате plain:
+
+[![asciinema](https://asciinema.org/a/vW08dc7qz5rJmu4A.svg)](https://asciinema.org/a/vW08dc7qz5rJmu4A)
 
 Как библиотека:
 
