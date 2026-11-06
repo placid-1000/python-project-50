@@ -12,6 +12,9 @@
 ## Стек
 
 - Python
+- PyYAML
+- pytest, pytest-cov
+- ruff
 
 ## Установка
 
@@ -56,6 +59,16 @@ gendiff file1.yml file2.yml
 Демонстрация работы с YAML:
 
 [![asciinema](https://asciinema.org/a/GXK3HAsHj3dPt8hE.svg)](https://asciinema.org/a/GXK3HAsHj3dPt8hE)
+
+Сравнение файлов со вложенными структурами:
+
+```bash
+gendiff filepath1.json filepath2.json
+```
+
+Демонстрация работы с вложенными структурами:
+
+[![asciinema](https://asciinema.org/a/8zsBEsEzatRm5SOq.svg)](https://asciinema.org/a/8zsBEsEzatRm5SOq)
 
 Как библиотека:
 

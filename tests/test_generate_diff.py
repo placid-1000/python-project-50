@@ -47,3 +47,28 @@ def test_yaml_and_json_give_same_diff():
         str(TEST_DATA_DIR / 'file1.yml'),
         str(TEST_DATA_DIR / 'file2.yml'),
     ) == expected.rstrip('\n')
+
+def test_generate_diff_nested_json():
+    path1 = TEST_DATA_DIR / 'nested_file1.json'
+    path2 = TEST_DATA_DIR / 'nested_file2.json'
+    expected = (TEST_DATA_DIR / 'expected_stylish.txt').read_text()
+    assert generate_diff(str(path1), str(path2)) == expected.rstrip('\n')
+
+
+def test_generate_diff_nested_yaml():
+    path1 = TEST_DATA_DIR / 'nested_file1.yml'
+    path2 = TEST_DATA_DIR / 'nested_file2.yml'
+    expected = (TEST_DATA_DIR / 'expected_stylish.txt').read_text()
+    assert generate_diff(str(path1), str(path2)) == expected.rstrip('\n')
+
+
+def test_nested_json_and_yaml_give_same_diff():
+    diff_json = generate_diff(
+        str(TEST_DATA_DIR / 'nested_file1.json'),
+        str(TEST_DATA_DIR / 'nested_file2.json'),
+    )
+    diff_yaml = generate_diff(
+        str(TEST_DATA_DIR / 'nested_file1.yml'),
+        str(TEST_DATA_DIR / 'nested_file2.yml'),
+    )
+    assert diff_json == diff_yaml
