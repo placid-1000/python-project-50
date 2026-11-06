@@ -95,6 +95,34 @@ Property 'group3' was added with value: [complex value]
 
 [![asciinema](https://asciinema.org/a/vW08dc7qz5rJmu4A.svg)](https://asciinema.org/a/vW08dc7qz5rJmu4A)
 
+Сравнение файлов в формате json:
+
+```bash
+gendiff --format json filepath1.json filepath2.json
+```
+
+Пример вывода:
+
+```text
+[
+    {
+        "key": "common",
+        "type": "nested",
+        "children": [
+            {
+                "key": "follow",
+                "type": "added",
+                "value": false
+            }
+        ]
+    }
+]
+```
+
+Демонстрация работы в формате json:
+
+[![asciinema](https://asciinema.org/a/TCQNA9UCjRAnH51l.svg)](https://asciinema.org/a/TCQNA9UCjRAnH51l)
+
 Как библиотека:
 
 ```python
