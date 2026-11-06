@@ -13,16 +13,46 @@
 
 ## Установка
 
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
-
 ```bash
 git clone https://github.com/placid-1000/python-project-50.git
 cd python-project-50
+make install
 ```
+
 
 ## Использование
 
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
+Демонстрация работы утилиты:
+
+[![asciinema](https://asciinema.org/a/L6I04CGi7YqBFaQ2.svg)](https://asciinema.org/a/L6I04CGi7YqBFaQ2)
+
+Сравнение двух плоских JSON-файлов:
+
+```bash
+gendiff file1.json file2.json
+```
+
+Пример вывода:
+
+```text
+{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}
+```
+
+Как библиотека:
+
+```python
+from gendiff import generate_diff
+
+diff = generate_diff('file1.json', 'file2.json')
+print(diff)
+```
 
 ---
 
