@@ -24,10 +24,6 @@ make install
 
 ## Использование
 
-Демонстрация работы утилиты:
-
-[![asciinema](https://asciinema.org/a/L6I04CGi7YqBFaQ2.svg)](https://asciinema.org/a/L6I04CGi7YqBFaQ2)
-
 Сравнение двух плоских JSON-файлов:
 
 ```bash
@@ -46,6 +42,20 @@ gendiff file1.json file2.json
   + verbose: true
 }
 ```
+
+Демонстрация работы утилиты:
+
+[![asciinema](https://asciinema.org/a/L6I04CGi7YqBFaQ2.svg)](https://asciinema.org/a/L6I04CGi7YqBFaQ2)
+
+Сравнение двух плоских YAML-файлов:
+
+```bash
+gendiff file1.yml file2.yml
+```
+
+Демонстрация работы с YAML:
+
+[![asciinema](https://asciinema.org/a/GXK3HAsHj3dPt8hE.svg)](https://asciinema.org/a/GXK3HAsHj3dPt8hE)
 
 Как библиотека:
 

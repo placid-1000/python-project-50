@@ -7,7 +7,9 @@ authors = [
     { name = "Александр Сусарин", email = "susarin97@mail.ru" }
 ]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "pyyaml>=6.0.3",
+]
 
 [project.scripts]
 gendiff = "gendiff.scripts.gendiff:main"

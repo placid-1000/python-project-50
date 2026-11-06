@@ -30,3 +30,20 @@ def test_main(capsys, monkeypatch):
     captured = capsys.readouterr()
     assert captured.out.strip() == expected.strip()
 
+def test_generate_diff_flat_yaml():
+    path1 = TEST_DATA_DIR / 'file1.yml'
+    path2 = TEST_DATA_DIR / 'file2.yml'
+    expected = (TEST_DATA_DIR / 'expected_flat_diff.txt').read_text()
+    assert generate_diff(str(path1), str(path2)) == expected.rstrip('\n')
+
+
+def test_yaml_and_json_give_same_diff():
+    expected = (TEST_DATA_DIR / 'expected_flat_diff.txt').read_text()
+    assert generate_diff(
+        str(TEST_DATA_DIR / 'file1.json'),
+        str(TEST_DATA_DIR / 'file2.json'),
+    ) == expected.rstrip('\n')
+    assert generate_diff(
+        str(TEST_DATA_DIR / 'file1.yml'),
+        str(TEST_DATA_DIR / 'file2.yml'),
+    ) == expected.rstrip('\n')
