@@ -20,6 +20,7 @@ build-backend = "uv_build"
 
 [tool.uv.build-backend]
 module-name = "gendiff"
+module-root = ""
 
 [dependency-groups]
 dev = [
@@ -31,5 +32,8 @@ dev = [
 [tool.ruff]
 line-length = 90
 
+[tool.ruff.lint]
+select = ["E", "F", "I", "C90"]
+
 [tool.coverage.report]
-fail_under = 75
+fail_under = 90

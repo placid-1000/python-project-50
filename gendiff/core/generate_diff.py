@@ -1,8 +1,8 @@
-from gendiff.diff_builder import build_diff
+from gendiff.core.diff_builder import build_diff
+from gendiff.core.parser import parse
 from gendiff.formatters.json import format_json
 from gendiff.formatters.plain import format_plain
 from gendiff.formatters.stylish import format_stylish
-from gendiff.parser import parse
 
 FORMATTERS = {
     'stylish': format_stylish,

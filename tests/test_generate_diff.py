@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from gendiff import generate_diff
 
 TEST_DATA_DIR = Path(__file__).parent / 'test_data'
@@ -118,3 +120,7 @@ def test_json_format_same_for_json_and_yaml():
         'json',
     ))
     assert diff_json == diff_yaml
+
+def test_unsupported_file_format():
+    with pytest.raises(ValueError, match='Unsupported file format'):
+        generate_diff('a.txt', 'b.txt')
